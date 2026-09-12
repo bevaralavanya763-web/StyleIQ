@@ -1,5 +1,5 @@
 /* =========================================
-   StyleIQ - Global Styles
+   StyleIQ - Premium Fashion-Tech Theme
    ========================================= */
 
 * {
@@ -9,23 +9,39 @@
 }
 
 :root {
-    --primary: #6c4df6;
-    --primary-dark: #5638d9;
+    --primary: #b08d57;
+    --primary-dark: #8f6f3f;
+
     --text-primary: #171717;
-    --text-secondary: #666666;
-    --background: #f7f8fc;
+    --text-secondary: #66615a;
+
+    --background: #f5f1e8;
     --white: #ffffff;
-    --border: #e6e6e6;
+
+    --dark: #171717;
+    --border: #ddd6c9;
 }
+
+
+/* =========================================
+   Base
+   ========================================= */
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: var(--background);
     color: var(--text-primary);
+
     line-height: 1.6;
 }
 
@@ -35,24 +51,28 @@ body {
    ========================================= */
 
 .navbar {
-    height: 72px;
+    height: 78px;
+
     padding: 0 7%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: var(--white);
+    background: rgba(245, 241, 232, 0.96);
+
     border-bottom: 1px solid var(--border);
 }
 
 .logo {
-    color: var(--text-primary);
+    color: var(--dark);
+
     text-decoration: none;
 
-    font-size: 27px;
+    font-size: 28px;
     font-weight: 800;
-    letter-spacing: -1px;
+
+    letter-spacing: -1.5px;
 }
 
 .logo span {
@@ -62,29 +82,49 @@ body {
 .navbar-links {
     display: flex;
     align-items: center;
-    gap: 24px;
+
+    gap: 26px;
 }
 
 .navbar-links a {
-    color: #333333;
+    color: var(--text-primary);
+
     text-decoration: none;
 
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
+
+    transition:
+        color 0.2s ease;
 }
 
+.navbar-links a:hover {
+    color: var(--primary-dark);
+}
+
+
+/* =========================================
+   Register Navigation Button
+   ========================================= */
+
 .nav-button {
-    background: var(--primary);
+    padding: 10px 20px;
+
+    background: var(--dark);
+
     color: var(--white) !important;
 
-    padding: 10px 19px;
-    border-radius: 8px;
+    border-radius: 5px;
 
-    transition: background 0.2s ease;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .nav-button:hover {
     background: var(--primary-dark);
+
+    transform: translateY(-1px);
 }
 
 
@@ -93,45 +133,118 @@ body {
    ========================================= */
 
 .hero {
-    min-height: calc(100vh - 132px);
+    min-height: calc(100vh - 138px);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    text-align: center;
+    padding: 80px 20px;
 
-    padding: 70px 20px;
+    position: relative;
+
+    overflow: hidden;
 }
+
+
+/* Decorative background elements */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border: 1px solid rgba(176, 141, 87, 0.25);
+
+    border-radius: 50%;
+
+    top: -190px;
+    right: -130px;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border: 1px solid rgba(176, 141, 87, 0.18);
+
+    border-radius: 50%;
+
+    bottom: -130px;
+    left: -100px;
+}
+
 
 .hero-content {
     width: 100%;
-    max-width: 850px;
+
+    max-width: 900px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 1;
 }
+
+
+/* =========================================
+   Eyebrow
+   ========================================= */
 
 .eyebrow {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
-    color: var(--primary);
+    color: var(--primary-dark);
 
-    font-size: 13px;
+    font-size: 12px;
+
     font-weight: 700;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
+
+/* =========================================
+   Main Heading
+   ========================================= */
+
 .hero h1 {
-    margin-bottom: 25px;
+    margin-bottom: 28px;
 
-    font-size: clamp(44px, 7vw, 76px);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    line-height: 1.05;
+    font-size: clamp(46px, 7vw, 82px);
+
+    line-height: 1.02;
+
     letter-spacing: -3px;
+
+    font-weight: 500;
 }
 
 .hero h1 span {
-    color: var(--primary);
+    display: block;
+
+    color: var(--primary-dark);
+
+    font-style: italic;
 }
+
+
+/* =========================================
+   Description
+   ========================================= */
 
 .hero-description {
     max-width: 650px;
@@ -141,54 +254,77 @@ body {
     color: var(--text-secondary);
 
     font-size: 17px;
-    line-height: 1.7;
+
+    line-height: 1.8;
 }
+
+
+/* =========================================
+   Hero Buttons
+   ========================================= */
 
 .hero-actions {
     display: flex;
+
     justify-content: center;
+
+    align-items: center;
 
     gap: 14px;
 
-    margin-top: 35px;
+    margin-top: 38px;
 }
 
 .primary-button,
 .secondary-button {
     display: inline-block;
 
-    padding: 14px 25px;
+    padding: 14px 27px;
 
-    border-radius: 9px;
+    border-radius: 5px;
 
     text-decoration: none;
+
+    font-size: 14px;
+
     font-weight: 700;
 
     transition:
         transform 0.2s ease,
-        background 0.2s ease;
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
+
+/* Primary */
+
 .primary-button {
-    background: var(--primary);
+    background: var(--dark);
+
     color: var(--white);
 }
 
 .primary-button:hover {
     background: var(--primary-dark);
+
     transform: translateY(-2px);
 }
 
-.secondary-button {
-    background: var(--white);
-    color: var(--text-primary);
 
-    border: 1px solid var(--border);
+/* Secondary */
+
+.secondary-button {
+    background: transparent;
+
+    color: var(--dark);
+
+    border: 1px solid #bdb5a7;
 }
 
 .secondary-button:hover {
+    border-color: var(--dark);
+
     transform: translateY(-2px);
-    border-color: #cccccc;
 }
 
 
@@ -203,13 +339,15 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: var(--white);
+    background: var(--dark);
 
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--dark);
 
-    color: #777777;
+    color: #d5d0c7;
 
-    font-size: 13px;
+    font-size: 12px;
+
+    letter-spacing: 0.3px;
 }
 
 
@@ -217,23 +355,48 @@ body {
    Responsive Design
    ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .navbar {
-        padding: 0 20px;
+        height: auto;
+
+        min-height: 72px;
+
+        padding: 14px 20px;
     }
 
     .navbar-links {
         gap: 10px;
     }
 
+    .navbar-links a {
+        font-size: 13px;
+    }
+
+    .nav-button {
+        padding: 9px 14px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 132px);
+
+        padding: 60px 20px;
+    }
+
     .hero h1 {
+        font-size: clamp(42px, 12vw, 60px);
+
         letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 15px;
     }
 
     .hero-actions {
         flex-direction: column;
-        align-items: stretch;
+
+        width: 100%;
 
         max-width: 280px;
 
@@ -243,6 +406,8 @@ body {
 
     .primary-button,
     .secondary-button {
+        width: 100%;
+
         text-align: center;
     }
 }
