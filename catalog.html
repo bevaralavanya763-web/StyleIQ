@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="StyleIQ Clothing Catalog">
+
+    <title>My Catalog | StyleIQ</title>
+
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Style<span>IQ</span>
+        </a>
+
+        <nav class="navbar-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="add-clothing.html" class="nav-button">
+                Add Clothing
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CATALOG -->
+    <main>
+
+        <section class="catalog-section">
+
+            <div class="catalog-header">
+
+                <p class="catalog-eyebrow">
+                    MY COLLECTION
+                </p>
+
+                <h1>
+                    Your <span>clothing catalog.</span>
+                </h1>
+
+                <p class="catalog-subtitle">
+                    View and manage the clothing products
+                    added to your StyleIQ collection.
+                </p>
+
+            </div>
+
+
+            <!-- PRODUCT COUNT -->
+
+            <div class="catalog-toolbar">
+
+                <p id="productCount">
+                    Loading products...
+                </p>
+
+                <a href="add-clothing.html"
+                   class="primary-button catalog-add-button">
+                    + Add Clothing
+                </a>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div id="productGrid" class="product-grid">
+
+                <!-- Products will be loaded here -->
+
+            </div>
+
+
+            <!-- EMPTY MESSAGE -->
+
+            <div id="emptyCatalog"
+                 class="empty-catalog"
+                 style="display: none;">
+
+                <div class="empty-catalog-icon">
+                    +
+                </div>
+
+                <h2>
+                    Your catalog is empty.
+                </h2>
+
+                <p>
+                    Add your first clothing product
+                    to start building your collection.
+                </p>
+
+                <a href="add-clothing.html"
+                   class="primary-button">
+                    Add Your First Product
+                </a>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <p id="catalogMessage"
+               class="auth-message">
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 StyleIQ. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script type="module"
+            src="js/catalog.js">
+    </script>
+
+</body>
+
+</html>
