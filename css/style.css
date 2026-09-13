@@ -1221,3 +1221,348 @@ body {
     }
 
 }
+/* =========================================
+   CATALOG PAGE
+========================================= */
+
+.catalog-section {
+    min-height: calc(100vh - 138px);
+    padding: 70px 7%;
+}
+
+.catalog-header {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.catalog-eyebrow {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.catalog-header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.catalog-header h1 span {
+    color: var(--gold);
+}
+
+.catalog-subtitle {
+    max-width: 620px;
+    margin: 20px auto 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   CATALOG TOOLBAR
+========================================= */
+
+.catalog-toolbar {
+    max-width: 1050px;
+    margin: 0 auto 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.catalog-toolbar p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.catalog-add-button {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   PRODUCT GRID
+========================================= */
+
+.product-grid {
+    max-width: 1050px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.product-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+
+    min-height: 285px;
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   PRODUCT CARD TOP
+========================================= */
+
+.product-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.product-category {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    color: var(--gold);
+}
+
+.product-price {
+    font-size: 17px;
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================
+   PRODUCT CARD BODY
+========================================= */
+
+.product-card-body {
+    flex: 1;
+    padding-top: 22px;
+}
+
+.product-card-body h2 {
+    margin: 0 0 20px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 500;
+
+    color: var(--text-primary);
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-details p {
+    margin: 0;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: var(--text-secondary);
+}
+
+.product-details strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+
+/* =========================================
+   PRODUCT ACTIONS
+========================================= */
+
+.product-card-actions {
+    display: flex;
+    gap: 10px;
+
+    padding-top: 20px;
+}
+
+.product-card-actions button {
+    flex: 1;
+
+    padding: 11px 15px;
+
+    border: 1px solid var(--border);
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.edit-product-button {
+    color: var(--text-primary);
+}
+
+.edit-product-button:hover {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--white);
+}
+
+.delete-product-button {
+    color: #9b4d4d;
+}
+
+.delete-product-button:hover {
+    background: #9b4d4d;
+    border-color: #9b4d4d;
+    color: var(--white);
+}
+
+
+/* =========================================
+   EMPTY CATALOG
+========================================= */
+
+.empty-catalog {
+    max-width: 650px;
+    min-height: 300px;
+
+    margin: 20px auto 0;
+    padding: 45px 30px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-catalog-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold);
+
+    font-size: 25px;
+}
+
+.empty-catalog h2 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 500;
+
+    color: var(--text-primary);
+}
+
+.empty-catalog p {
+    max-width: 420px;
+
+    margin: 0 0 25px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .catalog-section {
+        padding: 50px 5%;
+    }
+
+    .catalog-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .catalog-add-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        min-height: 0;
+    }
+
+}
