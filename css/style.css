@@ -1834,5 +1834,86 @@ body {
     .category-item {
         padding: 17px 2px;
     }
+/* =========================================
+   EDIT PRODUCT PAGE
+========================================= */
 
+.edit-product-section {
+    min-height: calc(100vh - 138px);
+    padding: 70px 7%;
+}
+
+.edit-product-header {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.edit-product-eyebrow {
+    margin: 0 0 14px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: var(--gold);
+}
+
+.edit-product-header h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1;
+    font-weight: 500;
+
+    color: var(--text-primary);
+}
+
+.edit-product-header h1 span {
+    color: var(--gold);
+}
+
+.edit-product-description {
+    max-width: 620px;
+
+    margin: 20px auto 0;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.edit-product-section .product-form-card {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   IMAGE NOTE
+========================================= */
+
+.edit-product-section .image-upload-note {
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .edit-product-section {
+        padding: 50px 5%;
+    }
+
+}
 }
