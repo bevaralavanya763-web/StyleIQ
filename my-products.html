@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="StyleIQ Seller Product Overview">
+
+    <title>My Products | StyleIQ</title>
+
+    <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Style<span>IQ</span>
+        </a>
+
+        <nav class="navbar-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="catalog.html">
+                View Catalog
+            </a>
+
+            <a href="add-clothing.html"
+               class="nav-button">
+                Add Clothing
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MY PRODUCTS -->
+
+    <main>
+
+        <section class="my-products-section">
+
+            <div class="my-products-header">
+
+                <p class="my-products-eyebrow">
+                    PRODUCT OVERVIEW
+                </p>
+
+                <h1>
+                    Your <span>products.</span>
+                </h1>
+
+                <p class="my-products-subtitle">
+                    Get a quick overview of your clothing
+                    collection and its categories.
+                </p>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="product-summary-grid">
+
+                <div class="summary-card">
+
+                    <p class="summary-label">
+                        TOTAL PRODUCTS
+                    </p>
+
+                    <h2 id="totalProducts">
+                        —
+                    </h2>
+
+                    <p>
+                        Products in your catalog
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <p class="summary-label">
+                        TOTAL CATEGORIES
+                    </p>
+
+                    <h2 id="totalCategories">
+                        —
+                    </h2>
+
+                    <p>
+                        Categories in your collection
+                    </p>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <p class="summary-label">
+                        TOP CATEGORY
+                    </p>
+
+                    <h2 id="topCategory">
+                        —
+                    </h2>
+
+                    <p id="topCategoryCount">
+                        Based on your products
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY BREAKDOWN -->
+
+            <div class="category-section">
+
+                <div class="category-section-header">
+
+                    <div>
+                        <p class="category-eyebrow">
+                            CATEGORY BREAKDOWN
+                        </p>
+
+                        <h2>
+                            Products by category
+                        </h2>
+                    </div>
+
+                    <a href="add-clothing.html"
+                       class="secondary-button">
+                        + Add Clothing
+                    </a>
+
+                </div>
+
+
+                <div id="categoryList"
+                     class="category-list">
+
+                    <!-- Categories will be loaded here -->
+
+                </div>
+
+
+                <div id="emptyProducts"
+                     class="empty-products"
+                     style="display: none;">
+
+                    <h3>
+                        No products yet.
+                    </h3>
+
+                    <p>
+                        Add clothing products to see
+                        your category overview.
+                    </p>
+
+                    <a href="add-clothing.html"
+                       class="primary-button">
+                        Add Clothing
+                    </a>
+
+                </div>
+
+
+                <p id="myProductsMessage"
+                   class="auth-message">
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 StyleIQ. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script type="module"
+            src="js/my-products.js">
+    </script>
+
+</body>
+
+</html>
