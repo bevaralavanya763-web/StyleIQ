@@ -204,7 +204,7 @@ body {
 
     color: var(--primary-dark);
 
-    font-size: 12px;
+    font-size: 15px;
 
     font-weight: 700;
 
@@ -224,7 +224,7 @@ body {
         "Times New Roman",
         serif;
 
-    font-size: clamp(46px, 7vw, 82px);
+    font-size: clamp(45px, 7vw, 80px);
 
     line-height: 1.02;
 
