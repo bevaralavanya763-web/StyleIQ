@@ -1566,3 +1566,273 @@ body {
     }
 
 }
+/* =========================================
+   MY PRODUCTS PAGE
+========================================= */
+
+.my-products-section {
+    min-height: calc(100vh - 138px);
+    padding: 70px 7%;
+}
+
+.my-products-header {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.my-products-eyebrow {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.my-products-header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.my-products-header h1 span {
+    color: var(--gold);
+}
+
+.my-products-subtitle {
+    max-width: 620px;
+    margin: 20px auto 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   SUMMARY CARDS
+========================================= */
+
+.product-summary-grid {
+    max-width: 1050px;
+    margin: 0 auto 45px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.summary-card {
+    min-height: 175px;
+    padding: 28px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.summary-label {
+    margin: 0 0 18px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    color: var(--gold);
+}
+
+.summary-card h2 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: 500;
+
+    color: var(--text-primary);
+}
+
+.summary-card > p:last-child {
+    margin: 0;
+
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   CATEGORY SECTION
+========================================= */
+
+.category-section {
+    max-width: 1050px;
+    margin: 0 auto;
+
+    padding: 30px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+}
+
+.category-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.category-eyebrow {
+    margin: 0 0 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    color: var(--gold);
+}
+
+.category-section-header h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-weight: 500;
+
+    color: var(--text-primary);
+}
+
+.category-section-header .secondary-button {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   CATEGORY LIST
+========================================= */
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 4px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    color: var(--text-primary);
+}
+
+.category-product-count {
+    min-width: 90px;
+
+    text-align: right;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   EMPTY PRODUCTS
+========================================= */
+
+.empty-products {
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-products h3 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 500;
+
+    color: var(--text-primary);
+}
+
+.empty-products p {
+    margin: 0 0 22px;
+
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .product-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .category-section-header .secondary-button {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .my-products-section {
+        padding: 50px 5%;
+    }
+
+    .category-section {
+        padding: 22px;
+    }
+
+    .category-item {
+        padding: 17px 2px;
+    }
+
+}
