@@ -190,4 +190,4 @@ clothingForm.addEventListener("submit", async (event) => {
 
     }
 
-});
+}); 
