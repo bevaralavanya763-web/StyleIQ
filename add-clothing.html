@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Add Clothing - StyleIQ">
+
+    <title>Add Clothing | StyleIQ</title>
+
+    <link rel="stylesheet"
+          href="css/style.css?v=2">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Style<span>IQ</span>
+        </a>
+
+        <nav class="navbar-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="catalog.html">
+                Catalog
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Add Clothing -->
+
+    <main>
+
+        <section class="add-product-section">
+
+            <div class="add-product-header">
+
+                <p class="add-product-eyebrow">
+                    PRODUCT MANAGEMENT
+                </p>
+
+                <h1>
+                    Add a new
+                    <span>garment.</span>
+                </h1>
+
+                <p class="add-product-description">
+                    Create a digital identity for your clothing
+                    product by adding its details below.
+                </p>
+
+            </div>
+
+
+            <!-- Product Form -->
+
+            <div class="product-form-card">
+
+                <form id="clothingForm">
+
+
+                    <!-- Product Name -->
+
+                    <div class="form-group">
+
+                        <label for="productName">
+                            Clothing Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productName"
+                            placeholder="e.g. Classic Cotton Shirt"
+                            required>
+
+                    </div>
+
+
+                    <!-- Category -->
+
+                    <div class="form-group">
+
+                        <label for="category">
+                            Category
+                        </label>
+
+                        <select id="category" required>
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Shirts">
+                                Shirts
+                            </option>
+
+                            <option value="T-Shirts">
+                                T-Shirts
+                            </option>
+
+                            <option value="Jeans">
+                                Jeans
+                            </option>
+
+                            <option value="Trousers">
+                                Trousers
+                            </option>
+
+                            <option value="Dresses">
+                                Dresses
+                            </option>
+
+                            <option value="Jackets">
+                                Jackets
+                            </option>
+
+                            <option value="Sarees">
+                                Sarees
+                            </option>
+
+                            <option value="Kurtas">
+                                Kurtas
+                            </option>
+
+                            <option value="Hoodies">
+                                Hoodies
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Price -->
+
+                    <div class="form-group">
+
+                        <label for="price">
+                            Price
+                        </label>
+
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="Enter price"
+                            min="0"
+                            step="0.01"
+                            required>
+
+                    </div>
+
+
+                    <!-- Color -->
+
+                    <div class="form-group">
+
+                        <label for="color">
+                            Color
+                        </label>
+
+                        <input
+                            type="text"
+                            id="color"
+                            placeholder="e.g. Black"
+                            required>
+
+                    </div>
+
+
+                    <!-- Material -->
+
+                    <div class="form-group">
+
+                        <label for="material">
+                            Material
+                        </label>
+
+                        <input
+                            type="text"
+                            id="material"
+                            placeholder="e.g. Cotton"
+                            required>
+
+                    </div>
+
+
+                    <!-- Sizes -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Available Sizes
+                        </label>
+
+                        <div class="size-options">
+
+                            <label class="size-option">
+                                <input
+                                    type="checkbox"
+                                    name="sizes"
+                                    value="XS">
+                                <span>XS</span>
+                            </label>
+
+                            <label class="size-option">
+                                <input
+                                    type="checkbox"
+                                    name="sizes"
+                                    value="S">
+                                <span>S</span>
+                            </label>
+
+                            <label class="size-option">
+                                <input
+                                    type="checkbox"
+                                    name="sizes"
+                                    value="M">
+                                <span>M</span>
+                            </label>
+
+                            <label class="size-option">
+                                <input
+                                    type="checkbox"
+                                    name="sizes"
+                                    value="L">
+                                <span>L</span>
+                            </label>
+
+                            <label class="size-option">
+                                <input
+                                    type="checkbox"
+                                    name="sizes"
+                                    value="XL">
+                                <span>XL</span>
+                            </label>
+
+                            <label class="size-option">
+                                <input
+                                    type="checkbox"
+                                    name="sizes"
+                                    value="XXL">
+                                <span>XXL</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Image -->
+
+                    <div class="form-group">
+
+                        <label for="productImage">
+                            Product Image
+                        </label>
+
+                        <input
+                            type="file"
+                            id="productImage"
+                            accept="image/*">
+
+                        <p class="image-note">
+                            Image upload will be connected
+                            to storage in the next step.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        id="saveProductButton"
+                        class="auth-button">
+
+                        Save Product
+
+                    </button>
+
+
+                    <p
+                        id="productMessage"
+                        class="auth-message">
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 StyleIQ. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- Product JavaScript -->
+
+    <script
+        type="module"
+        src="js/add-clothing.js">
+    </script>
+
+</body>
+
+</html>
