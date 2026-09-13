@@ -10,137 +10,10 @@
     <meta name="description"
           content="StyleIQ Seller Dashboard">
 
-    <title>StyleIQ | Seller Dashboard</title>
+    <title>Seller Dashboard | StyleIQ</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .dashboard-page {
-            min-height: calc(100vh - 132px);
-            padding: 50px 7%;
-        }
-
-        .dashboard-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 35px;
-        }
-
-        .dashboard-header h1 {
-            margin-bottom: 6px;
-            font-size: 34px;
-        }
-
-        .dashboard-subtitle {
-            color: #666666;
-            font-size: 15px;
-        }
-
-        .logout-button {
-            padding: 11px 20px;
-
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-
-            background: #ffffff;
-            color: #333333;
-
-            font-size: 14px;
-            font-weight: 700;
-
-            cursor: pointer;
-        }
-
-        .logout-button:hover {
-            background: #f5f5f5;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
-            max-width: 900px;
-        }
-
-        .dashboard-card {
-            padding: 30px;
-
-            background: #ffffff;
-
-            border: 1px solid #e6e6e6;
-            border-radius: 14px;
-
-            text-decoration: none;
-            color: inherit;
-
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .dashboard-card:hover {
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 30px rgba(0, 0, 0, 0.07);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            margin-bottom: 20px;
-
-            border-radius: 10px;
-
-            background: #f0edff;
-
-            color: #6c4df6;
-
-            font-size: 22px;
-            font-weight: 700;
-        }
-
-        .dashboard-card h2 {
-            margin-bottom: 8px;
-            font-size: 21px;
-        }
-
-        .dashboard-card p {
-            color: #666666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .seller-email {
-            margin-top: 5px;
-            color: #6c4df6;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        @media (max-width: 650px) {
-
-            .dashboard-page {
-                padding: 35px 20px;
-            }
-
-            .dashboard-header {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet"
+          href="css/style.css">
 </head>
 
 <body>
@@ -153,88 +26,184 @@
         </a>
 
         <nav class="navbar-links">
-            <button
-                id="logoutButton"
-                class="logout-button">
+
+            <span id="sellerEmail"
+                  class="seller-email">
+            </span>
+
+            <button id="logoutButton"
+                    class="logout-button">
                 Logout
             </button>
+
         </nav>
 
     </header>
 
 
     <!-- Dashboard -->
-    <main class="dashboard-page">
 
-        <section class="dashboard-header">
+    <main>
 
-            <div>
+        <section class="dashboard-section">
 
-                <p class="eyebrow">
+            <div class="dashboard-header">
+
+                <p class="dashboard-eyebrow">
                     SELLER DASHBOARD
                 </p>
 
                 <h1>
-                    Welcome to StyleIQ
+                    Manage your
+                    <span>StyleIQ collection.</span>
                 </h1>
 
                 <p class="dashboard-subtitle">
-                    Manage your clothing products and catalog.
-                </p>
-
-                <p
-                    id="sellerEmail"
-                    class="seller-email">
-                    Loading seller...
+                    Add, organize, and manage your clothing
+                    products from one place.
                 </p>
 
             </div>
 
-        </section>
+
+            <!-- Dashboard Features -->
+
+            <div class="dashboard-grid">
 
 
-        <!-- Dashboard Options -->
-        <section class="dashboard-grid">
+                <!-- Add Clothing -->
 
-            <a
-                href="add-clothing.html"
-                class="dashboard-card">
+                <a href="add-clothing.html"
+                   class="dashboard-card">
 
-                <div class="card-icon">
-                    +
-                </div>
+                    <div class="dashboard-card-icon">
+                        +
+                    </div>
 
-                <h2>
-                    Add Clothing
-                </h2>
+                    <div>
 
-                <p>
-                    Add a new clothing product with its
-                    name, category, price, color, material,
-                    sizes and image.
-                </p>
+                        <p class="dashboard-card-label">
+                            PRODUCT
+                        </p>
 
-            </a>
+                        <h2>
+                            Add Clothing
+                        </h2>
+
+                        <p>
+                            Add a new garment with its
+                            details to your collection.
+                        </p>
+
+                    </div>
+
+                    <span class="dashboard-card-arrow">
+                        →
+                    </span>
+
+                </a>
 
 
-            <a
-                href="catalog.html"
-                class="dashboard-card">
+                <!-- View Catalog -->
 
-                <div class="card-icon">
-                    ☰
-                </div>
+                <a href="catalog.html"
+                   class="dashboard-card">
 
-                <h2>
-                    View Catalog
-                </h2>
+                    <div class="dashboard-card-icon">
+                        ▣
+                    </div>
 
-                <p>
-                    View and manage all clothing products
-                    added by your seller account.
-                </p>
+                    <div>
 
-            </a>
+                        <p class="dashboard-card-label">
+                            COLLECTION
+                        </p>
+
+                        <h2>
+                            View Catalog
+                        </h2>
+
+                        <p>
+                            View, edit, and delete your
+                            existing clothing products.
+                        </p>
+
+                    </div>
+
+                    <span class="dashboard-card-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- My Products -->
+
+                <a href="catalog.html"
+                   class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <p class="dashboard-card-label">
+                            OVERVIEW
+                        </p>
+
+                        <h2>
+                            My Products
+                        </h2>
+
+                        <p>
+                            Get a quick overview of the
+                            products in your collection.
+                        </p>
+
+                    </div>
+
+                    <span class="dashboard-card-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- Seller Profile -->
+
+                <a href="#"
+                   class="dashboard-card"
+                   id="profileCard">
+
+                    <div class="dashboard-card-icon">
+                        ◇
+                    </div>
+
+                    <div>
+
+                        <p class="dashboard-card-label">
+                            ACCOUNT
+                        </p>
+
+                        <h2>
+                            Seller Profile
+                        </h2>
+
+                        <p>
+                            View your seller account
+                            information and details.
+                        </p>
+
+                    </div>
+
+                    <span class="dashboard-card-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
 
         </section>
 
@@ -242,6 +211,7 @@
 
 
     <!-- Footer -->
+
     <footer class="footer">
 
         <p>
@@ -251,7 +221,12 @@
     </footer>
 
 
-    <script type="module" src="js/dashboard.js"></script>
+    <!-- Firebase Dashboard -->
+
+    <script
+        type="module"
+        src="js/dashboard.js">
+    </script>
 
 </body>
 
