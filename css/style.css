@@ -195,7 +195,6 @@ body {
 /* =========================================
    StyleIQ Project Logo
    ========================================= */
-
 .styleiq-project-logo {
     display: flex;
     justify-content: center;
@@ -204,14 +203,12 @@ body {
     margin-bottom: 20px;
 }
 
-.project-logo-icon {
-    width: 105px;
-    height: 88px;
-
-    color: var(--primary-dark);
-
+.styleiq-project-logo img {
+    width: 110px;
+    height: auto;
     display: block;
 }
+
 /* =========================================
    Eyebrow
    ========================================= */
