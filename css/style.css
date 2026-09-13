@@ -196,59 +196,22 @@ body {
    StyleIQ Project Logo
    ========================================= */
 
-.styleiq-logo {
+.styleiq-project-logo {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
-.logo-icon {
-    position: relative;
-
-    width: 90px;
-    height: 75px;
+.project-logo-icon {
+    width: 105px;
+    height: 88px;
 
     color: var(--primary-dark);
+
+    display: block;
 }
-
-.hanger {
-    position: absolute;
-
-    top: -12px;
-    left: 34px;
-
-    font-size: 32px;
-    font-weight: 600;
-
-    transform: rotate(180deg);
-}
-
-.shirt {
-    position: absolute;
-
-    top: 18px;
-    left: 22px;
-
-    font-size: 52px;
-    font-weight: 300;
-
-    transform: rotate(90deg);
-}
-
-.pixels {
-    position: absolute;
-
-    top: 25px;
-    right: 2px;
-
-    font-size: 12px;
-    line-height: 14px;
-
-    letter-spacing: 3px;
-}
-
 /* =========================================
    Eyebrow
    ========================================= */
