@@ -1,10 +1,9 @@
-/* =========================================
    StyleIQ - Premium Fashion-Tech Theme
    ========================================= */
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0;k
     box-sizing: border-box;
 }
 
@@ -224,7 +223,7 @@ body {
         "Times New Roman",
         serif;
 
-    font-size: clamp(45px, 7vw, 80px);
+    font-size: clamp(40px, 6vw, 70px);
 
     line-height: 1.02;
 
