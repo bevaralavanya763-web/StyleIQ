@@ -10,140 +10,10 @@
     <meta name="description"
           content="StyleIQ Seller Login">
 
-    <title>StyleIQ | Seller Login</title>
+    <title>Seller Login | StyleIQ</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* Authentication page */
-
-        .auth-page {
-            min-height: calc(100vh - 132px);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 50px 20px;
-        }
-
-        .auth-card {
-            width: 100%;
-            max-width: 450px;
-
-            background: #ffffff;
-
-            padding: 40px;
-
-            border: 1px solid #e6e6e6;
-            border-radius: 16px;
-
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.07);
-        }
-
-        .auth-card h1 {
-            margin-bottom: 8px;
-
-            font-size: 30px;
-        }
-
-        .auth-subtitle {
-            margin-bottom: 30px;
-
-            color: #666666;
-
-            font-size: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-
-            margin-bottom: 7px;
-
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .form-group input {
-            width: 100%;
-
-            padding: 13px 14px;
-
-            border: 1px solid #dcdcdc;
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            outline: none;
-
-            transition: border-color 0.2s ease;
-        }
-
-        .form-group input:focus {
-            border-color: #6c4df6;
-        }
-
-        .auth-button {
-            width: 100%;
-
-            padding: 14px;
-
-            border: none;
-            border-radius: 8px;
-
-            background: #6c4df6;
-
-            color: #ffffff;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: background 0.2s ease;
-        }
-
-        .auth-button:hover {
-            background: #5638d9;
-        }
-
-        .auth-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .form-message {
-            min-height: 20px;
-
-            margin-top: 15px;
-
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .register-link {
-            margin-top: 25px;
-
-            text-align: center;
-
-            color: #666666;
-
-            font-size: 14px;
-        }
-
-        .register-link a {
-            color: #6c4df6;
-
-            font-weight: 700;
-
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet"
+          href="css/style.css">
 </head>
 
 <body>
@@ -151,13 +21,15 @@
     <!-- Navigation -->
     <header class="navbar">
 
-        <a href="index.html" class="logo">
+        <a href="index.html"
+           class="logo">
             Style<span>IQ</span>
         </a>
 
         <nav class="navbar-links">
 
-            <a href="register.html">
+            <a href="register.html"
+               class="nav-button">
                 Register
             </a>
 
@@ -167,93 +39,103 @@
 
 
     <!-- Login -->
-    <main class="auth-page">
+    <main>
 
-        <section class="auth-card">
+        <section class="auth-section">
 
-            <p class="eyebrow">
-                SELLER ACCOUNT
-            </p>
+            <div class="auth-card">
 
-            <h1>
-                Welcome back
-            </h1>
+                <div class="auth-logo">
 
-            <p class="auth-subtitle">
-                Login to manage your StyleIQ clothing catalog.
-            </p>
-
-
-            <form id="loginForm">
-
-                <!-- Email -->
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="seller@example.com"
-                        autocomplete="email"
-                        required
-                    >
+                    <img
+                        src="images/styleiq-logo.png"
+                        alt="StyleIQ logo">
 
                 </div>
 
 
-                <!-- Password -->
-                <div class="form-group">
-
-                    <label for="password">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Enter your password"
-                        autocomplete="current-password"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- Submit -->
-                <button
-                    type="submit"
-                    id="loginButton"
-                    class="auth-button">
-
-                    Login
-
-                </button>
-
-
-                <!-- Message -->
-                <p
-                    id="loginMessage"
-                    class="form-message"
-                    aria-live="polite">
+                <p class="auth-eyebrow">
+                    SELLER ACCOUNT
                 </p>
 
-            </form>
+
+                <h1>
+                    Welcome
+                    <span>back.</span>
+                </h1>
 
 
-            <p class="register-link">
+                <p class="auth-subtitle">
+                    Sign in to manage your clothing
+                    collection and StyleIQ catalog.
+                </p>
 
-                Don't have an account?
 
-                <a href="register.html">
-                    Create a seller account
-                </a>
+                <!-- Login Form -->
 
-            </p>
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="loginButton"
+                        class="auth-button">
+
+                        Login
+
+                    </button>
+
+
+                    <p
+                        id="loginMessage"
+                        class="auth-message">
+                    </p>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    <span>
+                        Don't have an account?
+                    </span>
+
+                    <a href="register.html">
+                        Create a seller account
+                    </a>
+
+                </div>
+
+            </div>
 
         </section>
 
@@ -268,7 +150,13 @@
         </p>
 
     </footer>
-    <script type="module" src="js/login.js"></script>
+
+
+    <!-- Firebase Login -->
+    <script
+        type="module"
+        src="js/login.js">
+    </script>
 
 </body>
 
