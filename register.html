@@ -10,154 +10,10 @@
     <meta name="description"
           content="StyleIQ Seller Registration">
 
-    <title>StyleIQ | Seller Registration</title>
+    <title>Create Account | StyleIQ</title>
 
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* Authentication page */
-
-        .auth-page {
-            min-height: calc(100vh - 132px);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 50px 20px;
-        }
-
-        .auth-card {
-            width: 100%;
-            max-width: 450px;
-
-            background: #ffffff;
-
-            padding: 40px;
-
-            border: 1px solid #e6e6e6;
-            border-radius: 16px;
-
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.07);
-        }
-
-        .auth-card h1 {
-            margin-bottom: 8px;
-
-            font-size: 30px;
-        }
-
-        .auth-subtitle {
-            margin-bottom: 30px;
-
-            color: #666666;
-
-            font-size: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-
-            margin-bottom: 7px;
-
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .form-group input {
-            width: 100%;
-
-            padding: 13px 14px;
-
-            border: 1px solid #dcdcdc;
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            outline: none;
-
-            transition: border-color 0.2s ease;
-        }
-
-        .form-group input:focus {
-            border-color: #6c4df6;
-        }
-
-        .password-note {
-            display: block;
-
-            margin-top: 6px;
-
-            color: #888888;
-
-            font-size: 12px;
-        }
-
-        .auth-button {
-            width: 100%;
-
-            padding: 14px;
-
-            border: none;
-            border-radius: 8px;
-
-            background: #6c4df6;
-
-            color: #ffffff;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: background 0.2s ease;
-        }
-
-        .auth-button:hover {
-            background: #5638d9;
-        }
-
-        .auth-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .form-message {
-            min-height: 20px;
-
-            margin-top: 15px;
-
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .login-link {
-            margin-top: 25px;
-
-            text-align: center;
-
-            color: #666666;
-
-            font-size: 14px;
-        }
-
-        .login-link a {
-            color: #6c4df6;
-
-            font-weight: 700;
-
-            text-decoration: none;
-        }
-
-        .footer {
-            margin-top: 0;
-        }
-    </style>
+    <link rel="stylesheet"
+          href="css/style.css">
 </head>
 
 <body>
@@ -165,14 +21,15 @@
     <!-- Navigation -->
     <header class="navbar">
 
-        <a href="index.html" class="logo">
+        <a href="index.html"
+           class="logo">
             Style<span>IQ</span>
         </a>
 
         <nav class="navbar-links">
 
             <a href="login.html">
-                Login
+                Seller Login
             </a>
 
         </nav>
@@ -181,119 +38,119 @@
 
 
     <!-- Registration -->
-    <main class="auth-page">
+    <main>
 
-        <section class="auth-card">
+        <section class="auth-section">
 
-            <p class="eyebrow">
-                SELLER ACCOUNT
-            </p>
+            <div class="auth-card">
 
-            <h1>
-                Create your account
-            </h1>
+                <div class="auth-logo">
 
-            <p class="auth-subtitle">
-                Register as a seller to manage your clothing catalog
-                with StyleIQ.
-            </p>
-
-
-            <form id="registerForm">
-
-                <!-- Seller Name -->
-                <div class="form-group">
-
-                    <label for="sellerName">
-                        Seller Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="sellerName"
-                        name="sellerName"
-                        placeholder="Enter your name"
-                        autocomplete="name"
-                        maxlength="100"
-                        required
-                    >
+                    <img
+                        src="images/styleiq-logo.png"
+                        alt="StyleIQ logo">
 
                 </div>
 
 
-                <!-- Email -->
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="seller@example.com"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- Password -->
-                <div class="form-group">
-
-                    <label for="password">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Create a password"
-                        autocomplete="new-password"
-                        minlength="6"
-                        required
-                    >
-
-                    <span class="password-note">
-                        Password must contain at least 6 characters.
-                    </span>
-
-                </div>
-
-
-                <!-- Submit -->
-                <button
-                    type="submit"
-                    id="registerButton"
-                    class="auth-button">
-
-                    Create Seller Account
-
-                </button>
-
-
-                <!-- Message -->
-                <p
-                    id="registerMessage"
-                    class="form-message"
-                    aria-live="polite">
+                <p class="auth-eyebrow">
+                    SELLER ACCOUNT
                 </p>
 
-            </form>
+
+                <h1>
+                    Create your
+                    <span>StyleIQ account.</span>
+                </h1>
 
 
-            <p class="login-link">
+                <p class="auth-subtitle">
+                    Set up your seller profile and bring
+                    your clothing collection into the
+                    StyleIQ catalog.
+                </p>
 
-                Already have an account?
 
-                <a href="login.html">
-                    Login here
-                </a>
+                <!-- Registration Form -->
 
-            </p>
+                <form id="registerForm">
+
+                    <div class="form-group">
+
+                        <label for="sellerName">
+                            Seller Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="sellerName"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="registerButton"
+                        class="auth-button">
+
+                        Create Seller Account
+
+                    </button>
+
+
+                    <p
+                        id="registerMessage"
+                        class="auth-message">
+                    </p>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    <span>
+                        Already have an account?
+                    </span>
+
+                    <a href="login.html">
+                        Sign in
+                    </a>
+
+                </div>
+
+            </div>
 
         </section>
 
@@ -308,9 +165,14 @@
         </p>
 
     </footer>
-    
-    <script type="module" src="js/register.js"></script>
-    
+
+
+    <!-- Firebase Registration -->
+    <script
+        type="module"
+        src="js/register.js">
+    </script>
+
 </body>
 
 </html>
