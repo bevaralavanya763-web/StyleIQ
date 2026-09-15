@@ -580,24 +580,29 @@
         categoryMessage.textContent =
             "Select a category:";
 
+categories.forEach((category) => {
 
-        categories.forEach((category) => {
+    const button = document.createElement("button");
 
-            const button =
-                document.createElement("button");
+    button.textContent = category;
 
-            button.textContent = category;
+    button.type = "button";
 
-            button.type = "button";
+    button.style.display = "block";
+    button.style.width = "250px";
+    button.style.margin = "10px 0";
+    button.style.padding = "12px 20px";
+    button.style.cursor = "pointer";
+    button.style.textAlign = "left";
 
-            button.addEventListener(
-                "click",
-                () => showProducts(category)
-            );
+    button.addEventListener(
+        "click",
+        () => showProducts(category)
+    );
 
-            categoryButtons.appendChild(button);
+    categoryButtons.appendChild(button);
 
-        });
+});
 
     }
 
