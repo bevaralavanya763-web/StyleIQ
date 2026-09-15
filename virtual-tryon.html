@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>StyleIQ - Virtual Try-On</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .tryon-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .tryon-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .tryon-title {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .tryon-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .camera-area {
+      text-align: center;
+    }
+
+    #cameraVideo,
+    #capturedImage {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      background: #111;
+      display: none;
+      margin: 0 auto 20px;
+    }
+
+    #cameraVideo {
+      transform: scaleX(-1);
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .tryon-btn {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .primary-btn {
+      background: #111;
+      color: white;
+    }
+
+    .secondary-btn {
+      background: #eee;
+      color: #111;
+    }
+
+    .danger-btn {
+      background: #d9534f;
+      color: white;
+    }
+
+    .upload-label {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: #eee;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #imageInput {
+      display: none;
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 20px;
+      color: #555;
+      min-height: 24px;
+    }
+
+    .next-section {
+      display: none;
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tryon-container">
+
+    <div class="tryon-card">
+
+      <h1 class="tryon-title">Virtual Try-On</h1>
+
+      <p class="tryon-subtitle">
+        Capture your photo using the camera or upload an image.
+      </p>
+
+      <div class="camera-area">
+
+        <video id="cameraVideo" autoplay playsinline></video>
+
+        <canvas id="cameraCanvas" style="display:none;"></canvas>
+
+        <img id="capturedImage" alt="Captured customer image">
+
+        <div class="button-group">
+
+          <button
+            id="startCameraBtn"
+            class="tryon-btn primary-btn">
+            📷 Start Camera
+          </button>
+
+          <button
+            id="captureBtn"
+            class="tryon-btn primary-btn"
+            style="display:none;">
+            📸 Capture
+          </button>
+
+          <button
+            id="retakeBtn"
+            class="tryon-btn secondary-btn"
+            style="display:none;">
+            🔄 Retake
+          </button>
+
+          <button
+            id="stopCameraBtn"
+            class="tryon-btn danger-btn"
+            style="display:none;">
+            ⏹ Stop Camera
+          </button>
+
+          <label
+            for="imageInput"
+            class="upload-label">
+            📁 Upload Photo
+          </label>
+
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*">
+        </div>
+
+        <div id="status" class="status">
+          Choose camera or upload a photo.
+        </div>
+
+      </div>
+
+      <div id="nextSection" class="next-section">
+
+        <h2>Customer Image Ready ✓</h2>
+
+        <p>
+          Your image is ready for clothing selection.
+        </p>
+
+        <button
+          id="continueBtn"
+          class="tryon-btn primary-btn">
+          Continue to Clothing Selection →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<script>
+
+  const video = document.getElementById("cameraVideo");
+  const canvas = document.getElementById("cameraCanvas");
+  const capturedImage = document.getElementById("capturedImage");
+
+  const startCameraBtn = document.getElementById("startCameraBtn");
+  const captureBtn = document.getElementById("captureBtn");
+  const retakeBtn = document.getElementById("retakeBtn");
+  const stopCameraBtn = document.getElementById("stopCameraBtn");
+
+  const imageInput = document.getElementById("imageInput");
+
+  const status = document.getElementById("status");
+  const nextSection = document.getElementById("nextSection");
+  const continueBtn = document.getElementById("continueBtn");
+
+  let cameraStream = null;
+  let customerImageData = null;
+
+
+  // -----------------------------
+  // START CAMERA
+  // -----------------------------
+
+  startCameraBtn.addEventListener("click", async () => {
+
+    try {
+
+      cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "user"
+        },
+        audio: false
+      });
+
+      video.srcObject = cameraStream;
+
+      video.style.display = "block";
+      capturedImage.style.display = "none";
+
+      startCameraBtn.style.display = "none";
+      captureBtn.style.display = "inline-block";
+      stopCameraBtn.style.display = "inline-block";
+      retakeBtn.style.display = "none";
+
+      nextSection.style.display = "none";
+
+      status.textContent = "Camera active. Position yourself clearly and capture.";
+
+    } catch (error) {
+
+      console.error(error);
+
+      status.textContent =
+        "Camera access was denied or is unavailable. You can upload a photo instead.";
+
+    }
+
+  });
+
+
+  // -----------------------------
+  // CAPTURE PHOTO
+  // -----------------------------
+
+  captureBtn.addEventListener("click", () => {
+
+    if (!cameraStream) return;
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    const context = canvas.getContext("2d");
+
+    // Undo the mirrored preview when saving
+    context.translate(canvas.width, 0);
+    context.scale(-1, 1);
+
+    context.drawImage(
+      video,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    customerImageData = canvas.toDataURL("image/jpeg", 0.92);
+
+    capturedImage.src = customerImageData;
+
+    capturedImage.style.display = "block";
+    video.style.display = "none";
+
+    captureBtn.style.display = "none";
+    retakeBtn.style.display = "inline-block";
+
+    status.textContent = "Photo captured successfully.";
+
+    nextSection.style.display = "block";
+
+  });
+
+
+  // -----------------------------
+  // RETAKE
+  // -----------------------------
+
+  retakeBtn.addEventListener("click", () => {
+
+    capturedImage.style.display = "none";
+    video.style.display = "block";
+
+    captureBtn.style.display = "inline-block";
+    retakeBtn.style.display = "none";
+
+    nextSection.style.display = "none";
+
+    status.textContent =
+      "Camera active. Capture another photo.";
+
+  });
+
+
+  // -----------------------------
+  // STOP CAMERA
+  // -----------------------------
+
+  stopCameraBtn.addEventListener("click", stopCamera);
+
+
+  function stopCamera() {
+
+    if (cameraStream) {
+
+      cameraStream.getTracks().forEach(track => {
+        track.stop();
+      });
+
+      cameraStream = null;
+
+    }
+
+    video.srcObject = null;
+
+    video.style.display = "none";
+
+    startCameraBtn.style.display = "inline-block";
+    captureBtn.style.display = "none";
+    stopCameraBtn.style.display = "none";
+
+    status.textContent =
+      "Camera stopped. You can upload a photo or start again.";
+
+  }
+
+
+  // -----------------------------
+  // UPLOAD IMAGE
+  // -----------------------------
+
+  imageInput.addEventListener("change", (event) => {
+
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+
+      status.textContent = "Please select an image file.";
+
+      return;
+
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      customerImageData = e.target.result;
+
+      capturedImage.src = customerImageData;
+
+      capturedImage.style.display = "block";
+      video.style.display = "none";
+
+      captureBtn.style.display = "none";
+      retakeBtn.style.display = "inline-block";
+
+      stopCamera();
+
+      status.textContent =
+        "Photo uploaded successfully.";
+
+      nextSection.style.display = "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+  });
+
+
+  // -----------------------------
+  // CONTINUE
+  // -----------------------------
+
+  continueBtn.addEventListener("click", () => {
+
+    if (!customerImageData) {
+
+      status.textContent =
+        "Please capture or upload a customer image first.";
+
+      return;
+
+    }
+
+    // Temporary storage.
+    // Later this will be replaced by the actual StyleIQ
+    // clothing-selection workflow.
+
+    sessionStorage.setItem(
+      "styleiq_customer_image",
+      customerImageData
+    );
+
+    alert(
+      "Customer image saved. Clothing selection will be connected next."
+    );
+
+  });
+
+
+  // -----------------------------
+  // CLEANUP
+  // -----------------------------
+
+  window.addEventListener("beforeunload", () => {
+    stopCamera();
+  });
+
+</script>
+
+</body>
+</html>
