@@ -1414,6 +1414,16 @@
                   alert(
                     `${selectedProduct.name} selected for Virtual Try-On`
                   );
+                  const tryonResultSection =
+  document.getElementById("tryonResultSection");
+
+const tryonResultStatus =
+  document.getElementById("tryonResultStatus");
+
+tryonResultSection.style.display = "block";
+
+tryonResultStatus.textContent =
+  "Product selected. Ready for Virtual Try-On.";
 
                 }
 
