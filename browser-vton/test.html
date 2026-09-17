@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>StyleIQ ONNX WebGPU Test</title>
+</head>
+
+<body>
+
+<h1>StyleIQ ONNX WebGPU Test</h1>
+
+<div id="status">Loading ONNX Runtime Web...</div>
+
+<script type="module">
+
+import * as ort from
+    "https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/esm/ort.webgpu.min.mjs";
+
+const status = document.getElementById("status");
+
+try {
+
+    const session = await ort.InferenceSession.create(
+        "https://huggingface.co/onnx-community/SmolLM2-135M-Instruct/resolve/main/onnx/model.onnx",
+        {
+            executionProviders: ["webgpu"]
+        }
+    );
+
+    status.innerHTML =
+        "✅ ONNX Runtime Web + WebGPU is working!";
+
+    console.log("ONNX session:", session);
+
+} catch (error) {
+
+    status.innerHTML =
+        "❌ ONNX error: " + error.message;
+
+    console.error(error);
+
+}
+
+</script>
+
+</body>
+</html>
