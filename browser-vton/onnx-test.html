@@ -2,71 +2,82 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>StyleIQ ONNX WebGPU Test</title>
+    <title>StyleIQ ONNX Diagnostic</title>
 </head>
 
 <body>
 
-<h1>StyleIQ ONNX + WebGPU Test</h1>
+<h1>StyleIQ ONNX Diagnostic</h1>
 
-<div id="status">Loading...</div>
+<div id="status">Starting...</div>
 
 <script type="module">
 
-import * as ort from
-    "https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/esm/ort.webgpu.min.mjs";
-
 const status = document.getElementById("status");
 
-async function test() {
-
-    try {
-
-        if (!navigator.gpu) {
-            throw new Error("WebGPU is not supported");
-        }
-
-        const adapter = await navigator.gpu.requestAdapter();
-
-        if (!adapter) {
-            throw new Error("WebGPU adapter unavailable");
-        }
-
-        const session = await ort.InferenceSession.create(
-            "./styleiq-test.onnx",
-            {
-                executionProviders: ["webgpu"]
-            }
-        );
-
-        const input = new ort.Tensor(
-            "float32",
-            new Float32Array([5]),
-            [1]
-        );
-
-        const results = await session.run({
-            X: input
-        });
-
-        const output = results.Y.data[0];
-
-        status.innerHTML =
-            "✅ ONNX + WebGPU is working!<br><br>" +
-            "Input: 5<br>" +
-            "Output: " + output;
-
-    } catch (error) {
-
-        status.innerHTML =
-            "❌ Test failed:<br><br>" +
-            error.message;
-
-        console.error(error);
-    }
+function show(message) {
+    status.innerHTML += "<br>" + message;
+    console.log(message);
 }
 
-test();
+try {
+
+    show("1. Importing ONNX Runtime...");
+
+    const ort = await import(
+        "https://cdn.jsdelivr.net/npm/onnxruntime-web/webgpu"
+    );
+
+    show("2. ONNX Runtime imported.");
+
+    if (!navigator.gpu) {
+        throw new Error("WebGPU is not available.");
+    }
+
+    show("3. WebGPU detected.");
+
+    const adapter = await navigator.gpu.requestAdapter();
+
+    if (!adapter) {
+        throw new Error("Could not obtain WebGPU adapter.");
+    }
+
+    show("4. WebGPU adapter obtained.");
+
+    const session = await ort.InferenceSession.create(
+        "./styleiq-test.onnx",
+        {
+            executionProviders: ["webgpu"]
+        }
+    );
+
+    show("5. ONNX model loaded.");
+
+    const input = new ort.Tensor(
+        "float32",
+        new Float32Array([5]),
+        [1]
+    );
+
+    show("6. Input created.");
+
+    const results = await session.run({
+        X: input
+    });
+
+    show("7. Model executed.");
+
+    show(
+        "RESULT: " + results.Y.data[0]
+    );
+
+} catch (error) {
+
+    show("❌ ERROR:");
+    show(error.message);
+
+    console.error(error);
+}
 
 </script>
 
