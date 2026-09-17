@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>StyleIQ Browser VTON Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        #status {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>StyleIQ Browser VTON</h1>
+
+    <div id="status">
+        Checking WebGPU...
+    </div>
+
+    <script>
+        async function checkWebGPU() {
+
+            const status = document.getElementById("status");
+
+            if (!navigator.gpu) {
+                status.textContent =
+                    "❌ WebGPU is not supported in this browser.";
+                return;
+            }
+
+            try {
+
+                const adapter = await navigator.gpu.requestAdapter();
+
+                if (!adapter) {
+                    status.textContent =
+                        "❌ WebGPU adapter not available.";
+                    return;
+                }
+
+                const device = await adapter.requestDevice();
+
+                status.innerHTML =
+                    "✅ WebGPU is available!<br><br>" +
+                    "Browser can access the GPU.";
+
+                console.log("WebGPU adapter:", adapter);
+                console.log("WebGPU device:", device);
+
+            } catch (error) {
+
+                status.textContent =
+                    "❌ WebGPU error: " + error.message;
+
+            }
+        }
+
+        checkWebGPU();
+    </script>
+
+</body>
+</html>
