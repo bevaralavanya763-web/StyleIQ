@@ -39,7 +39,7 @@ async function test() {
 
         const session =
             await ort.InferenceSession.create(
-                "./styleiq-test.onnx",
+                "./styleiq-test.onnx?v=2",
                 {
                     executionProviders: ["webgpu"]
                 }
