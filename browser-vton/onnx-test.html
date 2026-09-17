@@ -9,75 +9,74 @@
 
 <h1>StyleIQ ONNX Diagnostic</h1>
 
-<div id="status">Starting...</div>
+<div id="status">1. Loading ONNX Runtime...</div>
 
-<script type="module">
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.webgpu.min.js"></script>
 
-const status = document.getElementById("status");
+<script>
 
-function show(message) {
-    status.innerHTML += "<br>" + message;
-    console.log(message);
-}
+async function test() {
 
-try {
+    const status = document.getElementById("status");
 
-    show("1. Importing ONNX Runtime...");
+    try {
 
-    const ort = await import(
-        "https://cdn.jsdelivr.net/npm/onnxruntime-web/webgpu"
-    );
+        status.innerHTML += "<br>2. ONNX Runtime loaded.";
 
-    show("2. ONNX Runtime imported.");
-
-    if (!navigator.gpu) {
-        throw new Error("WebGPU is not available.");
-    }
-
-    show("3. WebGPU detected.");
-
-    const adapter = await navigator.gpu.requestAdapter();
-
-    if (!adapter) {
-        throw new Error("Could not obtain WebGPU adapter.");
-    }
-
-    show("4. WebGPU adapter obtained.");
-
-    const session = await ort.InferenceSession.create(
-        "./styleiq-test.onnx",
-        {
-            executionProviders: ["webgpu"]
+        if (!navigator.gpu) {
+            throw new Error("WebGPU is not available.");
         }
-    );
 
-    show("5. ONNX model loaded.");
+        status.innerHTML += "<br>3. WebGPU detected.";
 
-    const input = new ort.Tensor(
-        "float32",
-        new Float32Array([5]),
-        [1]
-    );
+        const adapter = await navigator.gpu.requestAdapter();
 
-    show("6. Input created.");
+        if (!adapter) {
+            throw new Error("WebGPU adapter unavailable.");
+        }
 
-    const results = await session.run({
-        X: input
-    });
+        status.innerHTML += "<br>4. WebGPU adapter obtained.";
 
-    show("7. Model executed.");
+        const session =
+            await ort.InferenceSession.create(
+                "./styleiq-test.onnx",
+                {
+                    executionProviders: ["webgpu"]
+                }
+            );
 
-    show(
-        "RESULT: " + results.Y.data[0]
-    );
+        status.innerHTML +=
+            "<br>5. ONNX model loaded.";
 
-} catch (error) {
+        const input = new ort.Tensor(
+            "float32",
+            new Float32Array([5]),
+            [1]
+        );
 
-    show("❌ ERROR:");
-    show(error.message);
+        const results = await session.run({
+            X: input
+        });
 
-    console.error(error);
+        status.innerHTML +=
+            "<br>6. Model executed.";
+
+        status.innerHTML +=
+            "<br><br>✅ RESULT: " +
+            results.Y.data[0];
+
+    } catch (error) {
+
+        status.innerHTML +=
+            "<br><br>❌ ERROR: " +
+            error.message;
+
+        console.error(error);
+    }
+
 }
+
+test();
 
 </script>
 
